@@ -1,0 +1,31 @@
+.cards{
+    background-color: aliceblue;
+}
+.card{
+   /*background-color: brown;*/
+    flex-wrap: wrap;
+    padding: 20px;
+    padding-bottom: 20px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+mat-card{
+    width: 200px;
+    background-color: rgb(166, 155, 229);
+    cursor: pointer;
+}
+
+.horarios{
+    display: flex;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    gap: 4px;
+}
+
+.info-local{
+    display: flex;
+    justify-content: space-around;
+}

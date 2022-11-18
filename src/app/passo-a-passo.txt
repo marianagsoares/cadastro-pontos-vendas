@@ -1,0 +1,5 @@
+1)Criar uma pasta views com dois componentes dentro, forms e cards
+2) instalar o angular material e o module material 
+3)Inserir o MaterialModule dentro do app.module.ts
+4)Inserir os componentes do material no material.module.ts
+5)
