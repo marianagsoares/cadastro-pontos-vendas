@@ -17,8 +17,8 @@ export class FormsComponent {
     private snackBar: MatSnackBar
   ) { }
 
-  estados!: IUf[];
-  cidades!: IMunicipio[];
+  ufs: IUf[] = [];
+  municipios: IMunicipio[] = [];
   localVendas: IFormulario[] = [];
 
   formulario: FormGroup = this.formBuilder.group({
@@ -34,15 +34,15 @@ export class FormsComponent {
     //SIMULA O GET (LISTAR TODOS OS LOCAIS DE VENDAS FINDALL)
     this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
 
-    this.IBGEService.buscarUf().subscribe((ufRetornado) => {
-      this.estados = ufRetornado;
+    this.IBGEService.buscarUf().subscribe((ufRetornado) => {     
+      this.ufs = ufRetornado;
     });
   }
 
-  procurarMunicipio(event: any) {
-    const idDoMunicipio = event.target.value;
-    this.IBGEService.buscarMunicipio(idDoMunicipio).subscribe((municipioRetornado) => {
-      this.cidades = municipioRetornado;
+  procurarMunicipio(evento: any) {
+    const idDoEstado = evento.target.value;
+    this.IBGEService.buscarMunicipio(idDoEstado).subscribe((municipioRetornado) => {
+      this.municipios = municipioRetornado;
     })
   }
 
@@ -75,8 +75,6 @@ export class FormsComponent {
         horarioInicio: inicio,
         horarioTermino: termino
       })
-
-      console.log(this.localVendas)
 
       //SIMULA O POST
       localStorage.setItem("localVendas", JSON.stringify(this.localVendas));

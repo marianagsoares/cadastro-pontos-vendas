@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsComponent } from '../views/forms/forms.component';
-import { LocaisCadastradosComponent } from '../views/registered/locais-cadastrados.component';
+import { LocaisCadastradosComponent } from '../views/locais-cadastrados/locais-cadastrados.component';
 
 const routes: Routes = [{
   path: "",
@@ -9,7 +9,7 @@ const routes: Routes = [{
 },
 {
   path: "cadastros",
-  component : LocaisCadastradosComponent
+  component: LocaisCadastradosComponent
 }
 ];
 

@@ -17,7 +17,7 @@ export class IBGEService {
     return this.http.get<IUf[]>(this.baseUrlUf)
   }
 
-  buscarMunicipio(siglaMunicipio: number){
-    return this.http.get<IMunicipio[]>(`${this.baseUrlMunicipio}${siglaMunicipio}/municipios`)
+  buscarMunicipio(siglaEstado: string){
+    return this.http.get<IMunicipio[]>(`${this.baseUrlMunicipio}${siglaEstado}/municipios`)
   }
 }
