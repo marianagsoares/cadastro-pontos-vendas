@@ -25,8 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     /*component raiz do angular*/
     AppComponent,
   ],
-  imports: [
-    /*importe do arquivo material-angular.module.ts*/
+  imports: [ //1.9
     MaterialAngularModule,
     BrowserModule,
     AppRoutingModule,

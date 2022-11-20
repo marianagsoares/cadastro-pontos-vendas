@@ -12,15 +12,16 @@ import { IBGEService } from 'src/app/services/ibge.service';
 export class FormsComponent {
 
   constructor(
-    private formBuilder: FormBuilder,
-    private IBGEService: IBGEService,
-    private snackBar: MatSnackBar
+    private formBuilder: FormBuilder, //2.1
+    private IBGEService: IBGEService, //4.1
+    private snackBar: MatSnackBar //7.2.1
   ) { }
 
-  ufs: IUf[] = [];
-  municipios: IMunicipio[] = [];
-  localVendas: IFormulario[] = [];
+  ufs: IUf[] = []; //4.3
+  municipios: IMunicipio[] = []; //6.3
+  localVendas: IFormulario[] = []; //7.2.2
 
+  //2.2
   formulario: FormGroup = this.formBuilder.group({
     nome: ["", [Validators.required]],
     local: ["", [Validators.required]],
@@ -32,21 +33,21 @@ export class FormsComponent {
 
   ngOnInit(): void {
     //SIMULA O GET (LISTAR TODOS OS LOCAIS DE VENDAS FINDALL)
-    this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
+    this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]"); //10.1
 
-    this.IBGEService.buscarUf().subscribe((ufRetornado) => {     
+    this.IBGEService.buscarUf().subscribe((ufRetornado) => { //4.2  
       this.ufs = ufRetornado;
     });
   }
 
-  procurarMunicipio(evento: any) {
+  procurarMunicipio(evento: any) { //6.2
     const idDoEstado = evento.target.value;
     this.IBGEService.buscarMunicipio(idDoEstado).subscribe((municipioRetornado) => {
       this.municipios = municipioRetornado;
     })
   }
 
-  adicionarLocalVenda(evento: any) {
+  adicionarLocalVenda(evento: any) { //2.5
     evento.preventDefault();
     evento.stopPropagation();
 
@@ -57,14 +58,14 @@ export class FormsComponent {
     const inicio = this.formulario.get("inicio")?.value;
     const termino = this.formulario.get("termino")?.value;
 
-
+    //7.2
     if (nome == "" || local == "" || cidade == "" || estado == "" || inicio == "" || termino == "") {
 
       this.snackBar.open(`Preencha os campos abaixo`, 'fechar', {
         duration: 5000,
         horizontalPosition: "right",
         verticalPosition: "bottom"
-      })
+      }) //7.2.3
     }
     else {
       this.localVendas.push({
@@ -77,13 +78,13 @@ export class FormsComponent {
       })
 
       //SIMULA O POST
-      localStorage.setItem("localVendas", JSON.stringify(this.localVendas));
+      localStorage.setItem("localVendas", JSON.stringify(this.localVendas)); //9.1
       
       this.snackBar.open(`Ponto de venda cadastrado com sucesso`, `fechar`, {
         duration: 5000,
         horizontalPosition: "right",
         verticalPosition: "bottom"
-      })
+      }) //7.2.3
     }
   }
 }

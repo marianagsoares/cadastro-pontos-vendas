@@ -9,11 +9,11 @@ import { IFormulario } from 'src/app/model/dados';
 
 export class CardsComponent implements OnInit {
 
-  localVendas: IFormulario[] = [];
+  localVendas: IFormulario[] = []; //9.2
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //9.2
     //SIMULA O GET (LISTAR TODOS OS LOCAIS DE VENDAS FINDALL)
     this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
   }

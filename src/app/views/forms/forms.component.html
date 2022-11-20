@@ -1,26 +1,26 @@
 <app-toolbar></app-toolbar>
 <div class="conteudo-pagina">
-  <form [formGroup]="formulario" (ngSubmit)="adicionarLocalVenda($event)">
+  <form [formGroup]="formulario" (ngSubmit)="adicionarLocalVenda($event)"> <!--2.3 e 2.6-->
     <div class="conteudo-formulario">
       <mat-form-field appearance="fill">
         <mat-label>Nome do ponto</mat-label>
-        <input matInput placeholder="Rei dos Açai" formControlName="nome" required>
+        <input matInput placeholder="Rei dos Açai" formControlName="nome" required><!--2.4-->
       </mat-form-field>
       <div class="camposSelecao">
         <mat-form-field appearance="fill" class="select">
           <mat-label>Estado</mat-label>
-          <select matNativeControl (change)="procurarMunicipio($event)" formControlName="estado">
+          <select matNativeControl (change)="procurarMunicipio($event)" formControlName="estado"><!--2.4--> <!--6.1-->
             <option value="" selected disabled>Selecione uma opção</option>
-            <option *ngFor="let uf of ufs" value={{uf.sigla}}>
+            <option *ngFor="let uf of ufs" value={{uf.sigla}}> <!--4.4-->
               {{uf.sigla}}
             </option>
           </select>
         </mat-form-field>
         <mat-form-field appearance="fill" class="select">
           <mat-label>Cidade</mat-label>
-          <select matNativeControl formControlName="cidade">
+          <select matNativeControl formControlName="cidade"><!--2.4-->
             <option value="" selected disabled>Selecione uma opção</option>
-            <option *ngFor="let municipio of municipios" value={{municipio.nome}}>
+            <option *ngFor="let municipio of municipios" value={{municipio.nome}}><!--6.4-->
               {{municipio.nome}}
             </option>
           </select>
@@ -28,16 +28,16 @@
       </div>
       <mat-form-field appearance="fill">
         <mat-label>Local do ponto</mat-label>
-        <input matInput placeholder="Praça dos Eucaliptos" formControlName="local" required>
+        <input matInput placeholder="Praça dos Eucaliptos" formControlName="local" required><!--2.4-->
       </mat-form-field>
       <div class="funcionamento">
         <mat-form-field appearance="fill" class="select">
           <mat-label>Horário de início</mat-label>
-          <input matInput formControlName="inicio" required type="time">
+          <input matInput formControlName="inicio" required type="time"><!--2.4-->
         </mat-form-field>
         <mat-form-field appearance="fill" class="select">
           <mat-label>Horário de término</mat-label>
-          <input matInput formControlName="termino" required type="time">
+          <input matInput formControlName="termino" required type="time"><!--2.4-->
         </mat-form-field>
       </div>
     </div>

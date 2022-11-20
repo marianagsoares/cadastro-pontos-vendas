@@ -1,8 +1,8 @@
-export interface IUf {
+export interface IUf { //3.4
     sigla: string,
 }
 
-export interface IMunicipio {
+export interface IMunicipio { //5.3
     nome: string
 }
 

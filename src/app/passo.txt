@@ -140,7 +140,7 @@ https://material.angular.io/
         })
     }
 
-    6.3 Na option do select do municipio que esta no html, utilizar ngFor para renderizar todos os itens que existem em municipios. Usar {{municipio.nome}} tanto para o valor quanto para o texto dessa option.
+    6.4 Na option do select do municipio que esta no html, utilizar ngFor para renderizar todos os itens que existem em municipios. Usar {{municipio.nome}} tanto para o valor quanto para o texto dessa option.
 
 7 Remover console.log e submeter formulario do componente de registro com dados dinamicos
 
